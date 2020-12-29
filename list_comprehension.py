@@ -125,6 +125,8 @@ def vowels_set(word):
         >>> vowels_set('mathematics')
         set(['a', 'i', 'e'])
     """
+    lst = set([w for w in word if w == 'a' or w == 'e' or w == 'i' or w == 'o' or w == 'u'])
+    return lst
     pass
 
 
@@ -135,8 +137,12 @@ def disemvowel(sentence):
         >>> disemvowel('the quick brown fox jumps over the lazy dog')
         'th qck brwn fx jmps vr th lzy dg'
     """
+    vowels = ('a','e','i','o','u')
+    for x in sentence:
+        if x in vowels:
+            sentence = sentence.replace(x,"")
+    return sentence
     pass
-
 
 
 def wiggle_numbers(nums):
@@ -145,6 +151,14 @@ def wiggle_numbers(nums):
         >>> wiggle_numbers([72, 26, 79, 70, 20, 68, 43, -71, 71, -2])
         [144, 52, -79, 140, 40, 136, -43, 71, -71, -4]
     """
+    lst = []
+    for x in nums:
+        if x%2 == 0:
+            x = 2*x
+        elif x%2 !=0:
+            x = -x
+        lst.append(x)
+    return lst
     pass
 
 
@@ -155,6 +169,8 @@ def encrypt_lol(sentence):
         >>> encrypt_lol('the quick brown fox jumps over the lazy dog')
         'uif rvjdl cspxo gpy kvnqt pwfs uif mbzy eph'
     """
+    #a = 'the quick brown fox jumps over the lazy dog'
+    print(''.join([c if c == ' ' or ord(c) >= ord('y') else chr(ord(c) + 1) for c in sentence]))
     pass
 
 
